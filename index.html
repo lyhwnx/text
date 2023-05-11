@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <!-- Add your site or application content here -->
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <h1>发送运营商短信</h1>
+
+	<p>请选择一个运营商：</p>
+
+	<!-- 选择运营商 -->
+	<button onclick="sendMessage('移动')">移动</button>
+	<button onclick="sendMessage('联通')">联通</button>
+	<button onclick="sendMessage('电信')">电信</button>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+  function sendMessage(operator) {
+			var recipient, message;
+
+			// 根据不同运营商设置短信对象和内容
+			if (operator === '移动') {
+				recipient = '10086';
+				message = 'smz';
+			} else if (operator === '联通') {
+				recipient = '10010';
+				message = '205';
+			} else if (operator === '电信') {
+				recipient = '10001';
+				message = 'smz#';
+			}
+
+			// 调用手机自带短信功能自动编辑短信
+			window.location.href = 'sms:' + recipient + '?body=' + encodeURIComponent(message);
+}
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
