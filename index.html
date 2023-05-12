@@ -54,9 +54,15 @@
 				recipient = '10001';
 				message = 'smz#';
 			}
+	  // 判断是否为 iOS 操作系统
+			var iOS = !!navigator.platform && /iP(ad|hone|od)/.test(navigator.platform);
+			if (iOS) {
+				// 在 iOS 操作系统下使用特殊协议打开短信功能
+				window.location.href = 'sms:&addresses=' + recipient + '&body=' + encodeURIComponent(message);
+			} else {
+				// 在其他操作系统下使用常规协议打开短信功能
+				window.location.href = 'sms:' + recipient + '?body=' + encodeURIComponent(message);
 
-			// 调用手机自带短信功能自动编辑短信
-			window.location.href = 'sms:' + recipient + '?body=' + encodeURIComponent(message);
 }
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
   </script>
