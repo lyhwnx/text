@@ -41,31 +41,35 @@
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
   function sendMessage(operator) {
-			var recipient, message;
+    var recipient, message;
 
-			// 根据不同运营商设置短信对象和内容
-			if (operator === '移动') {
-				recipient = '10086';
-				message = 'smz';
-			} else if (operator === '联通') {
-				recipient = '10010';
-				message = '205';
-			} else if (operator === '电信') {
-				recipient = '10001';
-				message = 'smz#';
-			}
-	  // 判断是否为 iOS 操作系统
-			var iOS = !!navigator.platform && /iP(ad|hone|od)/.test(navigator.platform);
-			if (iOS) {
-				// 在 iOS 操作系统下使用特殊协议打开短信功能
-				window.location.href = 'sms:&addresses=' + recipient + '&body=' + encodeURIComponent(message);
-			} else {
-				// 在其他操作系统下使用常规协议打开短信功能
-				window.location.href = 'sms:' + recipient + '?body=' + encodeURIComponent(message);
+    // 根据不同运营商设置短信对象和内容
+    if (operator === '移动') {
+      recipient = '10086';
+      message = 'smz';
+    } else if (operator === '联通') {
+      recipient = '10010';
+      message = '205';
+    } else if (operator === '电信') {
+      recipient = '10001';
+      message = 'smz#';
+    }
 
-}
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-}
+    // 调用手机自带短信功能自动编辑短信
+    // 判断是否为 iOS 操作系统
+    var iOS = !!navigator.platform && /iP(ad|hone|od)/.test(navigator.platform);
+    if (iOS) {
+      // 在 iOS 操作系统下使用特殊协议打开短信功能
+      window.location.href = 'sms:&addresses=' + recipient + '&body=' + encodeURIComponent(message);
+    } else {
+      // 在其他操作系统下使用常规协议打开短信功能
+      window.location.href = 'sms:' + recipient + '?body=' + encodeURIComponent(message);
+    }
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('set', 'transport', 'beacon');
+    ga('send', 'pageview')
+  }
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
