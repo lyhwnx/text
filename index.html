@@ -36,9 +36,46 @@
 	<button onclick="sendMessage('移动')">移动</button>
 	<button onclick="sendMessage('联通')">联通</button>
 	<button onclick="sendMessage('电信')">电信</button>
+	  <p>外省卡请点击：</p>
+	<button id="btnCM">外省移动</button>
+        <button id="btnCT">外省电信</button>
+        <button id="btnCU">外省联通</button>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
+	    var btnCM = document.querySelector("#btnCM");
+  var btnCT = document.querySelector("#btnCT");
+  var btnCU = document.querySelector("#btnCU");
+  var storeURL = "";//应用商店链接
+if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {//判断是不是 iOS 设备
+  storeURL = "itms-apps://itunes.apple.com/cn/app/id"; //iOS 应用商店链接前缀
+} else if (navigator.userAgent.match(/Android/i)) {//判断是不是 Android 设备
+  storeURL = "market://details?id="; //Android 应用商店链接前缀
+} else {//其他设备不做处理
+  storeURL = "";
+}
+
+btnCM.addEventListener("click", function() {
+  var id = "387682726";//中国移动应用商店 ID
+  var url = storeURL + id;//应用商店下载链接
+  window.open(url, "_blank");//新标签页打开应用商店
+});
+
+btnCT.addEventListener("click", function() {
+  var id = "414318084";//中国电信应用商店 ID
+  var url = storeURL + id;//应用商店下载链接
+  window.open(url, "_blank");//新标签页打开应用商店
+});
+
+btnCU.addEventListener("click", function() {
+  var id = "586919453";//中国联通应用商店 ID
+  var url = storeURL + id;//应用商店下载链接
+  window.open(url, "_blank");//新标签页打开应用商店
+});
+btnCU.addEventListener("click", function() {
+  var url = "https://itunes.apple.com/cn/app/id586919453?mt=8";//中国联通应用商店链接
+  window.open(url, "_blank");//新标签页打开应用商店
+});
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
   function sendMessage(operator) {
     var recipient, message;
