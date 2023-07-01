@@ -41,9 +41,9 @@
  <button onclick="window.location.href='https://wx.10086.cn/website/bind/bindAccount/new';">外省移动</button>
  <button onclick="search('中国电信')">外省电信</button>
   <p>请下载APP：</p>
-  <button onclick="search('中国银行')">中国银行</button>
-  <button onclick="search('中数字人民币')">数字人民币</button>
-  <button onclick="search('中银跨境Go')">中银跨境Go</button>
+  <button onclick="openAppStore('中国银行')">中国银行</button>
+  <button onclick="openAppStore('数字人民币')">数字人民币</button>
+  <button onclick="openAppStore('中银跨境GO')">中银跨境GO</button>
 
 <!--  <button onclick="search('中国联通')">外省联通</button>-->
 <!--  <button onclick="search('中国移动')">外省移动</button>-->
@@ -51,29 +51,23 @@
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
-function search(storeName) {
-  let device = '';
-  let userAgent = navigator.userAgent.toLowerCase();
-  // 判断设备类型
-  if (userAgent.indexOf('android') > -1) {
-    device = 'android';
-  } else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1 || userAgent.indexOf('ipod') > -1) {
-    device = 'ios';
-  }
+    function openAppStore(operator) {
+            // 判断设备类型
+      var userAgent = navigator.userAgent.toLowerCase();
+      var isAndroid = userAgent.indexOf('android') !== -1;
+      var isIos = /(iPhone|iPad|iPod|iOS)/i.test(userAgent);
 
-// 打开不同的应用商店并搜索
-switch (device) {
-  case 'android':
-    window.location.href = 'market://search?q=' + encodeURIComponent(storeName);
-    break;
-  case 'ios':
-    window.location.href = 'https://itunes.apple.com/search?term=' + encodeURIComponent(storeName) + '&country=cn&entity=software';
-    break;
-  default:
-    console.log('不支持的设备类型');
-    }
-  }
-}
+        if (isAndroid) {
+                // Android设备
+            window.location.href = 'market://search?q=' + operator;
+            } else if (isIos) {
+                // iOS设备
+            window.location.href = 'itms-apps://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?q=' + operator;
+            } else {
+              // 其他设备，如Windows Phone
+            alert('抱歉，该功能暂不支持您的设备。');
+            }
+        }
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
   function sendMessage(operator) {
     var recipient, message;
