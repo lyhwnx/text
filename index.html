@@ -63,15 +63,6 @@ function search(storeName) {
   }
 
   // 打开不同的应用商店并搜索
-  if (ua.match(/MicroMessenger/i) == "micromessenger") {
-    // 是微信浏览器打开
-      WeixinJSBridge.invoke('launchApplication', {
-        "schemeUrl": "weixin://dl/business/" + packageName,
-        "packageName": packageName,
-        "flags": ""
-     }, function(res) {})
-  }
-}else{
   switch (device) {
     case 'android':
       window.location.href = 'market://search?q=' + encodeURIComponent(storeName);
