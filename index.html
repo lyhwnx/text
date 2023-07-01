@@ -1,94 +1,96 @@
 <!doctype html>
-<html class="no-js" lang="">
+<超文本标记语言班级="无-js "语言="">
 
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<头>
+  <自指的字符集=" utf-8 " >
+  <标题></标题>
+  <自指的名字="描述"内容="">
+  <自指的名字="视窗"内容=宽度=设备宽度,初始比例=1>
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+  <自指的财产=" og:标题"内容="">
+  <自指的财产=" og:type "内容="">
+  <自指的财产=" og:url "内容="">
+  <自指的财产=" og:图像"内容="">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
+  <环能量损耗率="清单" href= "站点。网清单">
+  <环能量损耗率="苹果触摸图标" href = " icon.png " >
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <环能量损耗率="样式表" href=" css/normalize.css " >
+  <环能量损耗率="样式表" href=" css/main.css " >
 
-  <meta name="theme-color" content="#fafafa">
-</head>
+  <自指的名字="主题颜色"内容=" #发发发">
+</头>
 
-<body>
+<身体>
 
   <!-- Add your site or application content here -->
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-  <h1>发送运营商短信</h1>
+  <脚本科学研究委员会=" js/vendor/modernizr-3。11 .2 .量滴js " ></脚本>
+  <脚本科学研究委员会=" js/plugins.js " ></脚本>
+  <脚本科学研究委员会=" js/main.js " ></脚本>
+  <氕>发送运营商短信</氕>
 
 	<p>请选择一个运营商：</p>
 
 	<!-- 选择运营商 -->
-	<button onclick="sendMessage('移动')">移动</button>
-	<button onclick="sendMessage('联通')">联通</button>
-	<button onclick="sendMessage('电信')">电信</button>
+	<按钮onclick= "发送消息('移动')">移动</按钮>
+	<按钮onclick= "发送消息('联通')">联通</按钮>
+	<按钮onclick= "发送消息('电信')">电信</按钮>
 	  <p>外省卡请点击：</p>
-	<button onclick="search('中国联通')">外省联通</button>
-        <button onclick="search('中国移动')">外省移动</button>
-        <button onclick="search('中国电信')">外省电信</button>
-	 <p>请下载APP：</p>
-	<button onclick="search('中国银行')">中国银行</button>
-	<button onclick="search('数字人民币')">数字人民币</button>
-	<button onclick="search('中银跨境Go')">中银跨境Go</button>
+	// <按钮onclick= "搜索('中国联通')">外省联通</按钮>
+        // <按钮onclick= "搜索('中国移动')">外省移动</按钮>
+	<按钮onclick= "窗户。位置。href = ' https://UAC . 10010 . com/oauth 2/new _ auth？显示= WAP & page _ type = 05 & app _ code = ECS-YH-WAP & redirect _ uri = http://WAP。10010 .com/mobileService/log in callback。htm & state = http://WAP。10010 .com//mobileService/运营服务/获取userinfo。htm & channel _ code = 113000001 & real _ IP = 117。136 .40 .171">外省联通</按钮>
+	<按钮onclick= "窗户。位置。href=https://wx。10086 .cn/website/bind/bind帐户/new " >外省移动</按钮>
+        <按钮onclick= "搜索('中国电信')">外省电信</按钮>
+	 <p>请下载应用程序：</p>
+	<按钮onclick= "搜索('中国银行')">中国银行</按钮>
+	<按钮onclick= "搜索('数字人民币')">数字人民币</按钮>
+	<按钮onclick= "搜索('中银跨境去吧)">中银跨境去</按钮>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-function search(storeName) {
-  let device = '';
-  let userAgent = navigator.userAgent.toLowerCase();
+  <脚本>
+功能 搜索（商店名称) {
+让 设备 = '';
+让 用户代理=导航员。用户代理。toLowerCase()；
   
-  // 判断设备类型
-  if (userAgent.indexOf('android') > -1) {
-    device = 'android';
-  } else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1 || userAgent.indexOf('ipod') > -1) {
-    device = 'ios';
+// 判断设备类型
+如果（用户代理。索引(“安卓") > -1) {
+设备="安卓";
+} 其他 如果（用户代理。索引的(' iphone ') > -1||用户代理。索引的(' ipad ') > -1||用户代理。索引Of("ipod") > -1) {
+设备= ' ios
   }
   
-  // 打开不同的应用商店并搜索
-  switch (device) {
-    case 'android':
-      window.location.href = 'market://search?q=' + encodeURIComponent(storeName);
-      break;
-    case 'ios':
-      window.location.href = 'https://itunes.apple.com/search?term=' + encodeURIComponent(storeName) + '&country=cn&entity=software';
-      break;
-    default:
-      console.log('不支持的设备类型');
+// 打开不同的应用商店并搜索
+转换（设备) {
+情况"安卓":
+窗户。位置。href =市场://搜索？q= ' +编码成分（商店名称);
+破裂；
+情况ios ':
+窗户。位置。'https://itunes.apple.com/search？term= ' +编码成分（商店名称)+& country = cn & entity = software '；
+破裂；
+系统默认值：
+控制台。原木('不支持的设备类型');
   }
 }
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-  function sendMessage(operator) {
-    var recipient, message;
+窗户。总代理人=功能 () {嘎100 . q。推（争论) };嘎q =[]；嘎l = +新的日期；
+功能 发送消息（操作员) {
+定义变量 接受者,消息；
 
-    // 根据不同运营商设置短信对象和内容
-    if (operator === '移动') {
-      recipient = '10086';
-      message = 'smz';
-    } else if (operator === '联通') {
-      recipient = '10010';
-      message = '205';
-    } else if (operator === '电信') {
-      recipient = '10001';
-      message = 'smz#';
+// 根据不同运营商设置短信对象和内容
+如果（运算符==='移动') {
+收件人='10086';
+消息= SMZ '；
+} 其他 如果（运算符==='联通') {
+收件人='10010';
+消息='205';
+} 其他 如果（运算符==='电信') {
+收件人='10001';
+消息= SMZ # '；
     }
 
-    // 调用手机自带短信功能自动编辑短信
-    // 判断是否为 iOS 操作系统
-    var iOS = !!navigator.platform && /iP(ad|hone|od)/.test(navigator.platform);
+// 调用手机自带短信功能自动编辑短信
+// 判断是否为ios操作系统
+定义变量ios=！！领航员。平台&& /iP(ad|hone|od)/。试验（领航员。平台);
     if (iOS) {
       // 在 iOS 操作系统下使用特殊协议打开短信功能
       window.location.href = 'sms:&addresses=' + recipient + '&body=' + encodeURIComponent(message);
