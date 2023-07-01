@@ -61,17 +61,17 @@ function search(storeName) {
     device = 'ios';
   }
 
-  // 打开不同的应用商店并搜索
-  switch (device) {
-    case 'android':
-      window.location.href = 'market://search?q=' + encodeURIComponent(storeName);
-      break;
-    case 'ios':
-      window.location.href = 'https://itunes.apple.com/search?term=' + encodeURIComponent(storeName) + '&country=cn&entity=software';
-      break;
-    default:
-      console.log('不支持的设备类型');
-     }
+// 打开不同的应用商店并搜索
+switch (device) {
+  case 'android':
+    window.location.href = 'market://search?q=' + encodeURIComponent(storeName);
+    break;
+  case 'ios':
+    window.location.href = 'https://itunes.apple.com/search?term=' + encodeURIComponent(storeName) + '&country=cn&entity=software';
+    break;
+  default:
+    console.log('不支持的设备类型');
+    }
   }
 }
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
